@@ -16,8 +16,9 @@ def main():
     response = requests.post(
         url, data=json.dumps(payload), headers=headers).json()
     
-    blockNo = int(response["result"]["number"]
-    print response
+    blockNo = int(response["result"]["number"],16)
+    difficulty = int(response["result"]["difficulty"],16)
+    print "Block number: " + str(blockNo) + " diff: " + str(difficulty)
     assert response["jsonrpc"]
     assert response["id"] == 67
 
